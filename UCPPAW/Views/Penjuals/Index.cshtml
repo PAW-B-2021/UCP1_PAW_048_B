@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UCPPAW.Models.Penjual>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("NamaPenjual")
+            </th>
+            <th>
+                @Html.DisplayName("NoHp")
+            </th>
+            <th>
+                @Html.DisplayName("Alamat")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaPenjual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoHp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPenjual"><i class="fa fa-marker fa-lg"></a> |
+                <a asp-action="Details" asp-route-id="@item.IdPenjual"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPenjual"><i class="fas fa-trash-alt fa-lg"></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
